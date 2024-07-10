@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/p2.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="img/kado.png" id="kado">
+            <img src="img/balon.png" id="balon">
+            <img src="img/bunga.png" id="bunga">
+            <img src="img/heart.png" id="heart">
+            <a href="page3.html">
+                <img src="img/hbd.png" id="hbd">
+            </a>
+        </div>
+
+        <div class="paper">
+            <div class="typing-animation">
+                <span id="typing-text"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let kado = document.getElementById('kado')
+    let balon = document.getElementById('balon')
+    let bunda = document.getElementById('bunga')
+    let heart = document.getElementById('heart')
+    let hbd = document.getElementById('hbd')
+    window.addEventListener('scroll', () =>{
+        let value = window.scrollY;
+
+        kado.style.left= value * -6.5 + 'px';
+        balon.style.left= value * 4.5 + 'px';
+        bunga.style.left= value * -2.5 + 'px';
+        heart.style.left= value * 2.5 + 'px';
+        hbd.style.left= value * -1.5 + 'px';
+    })
+
+    const typingText = document.getElementById('typing-text');
+    const textToType = 'Penggunaan teknologi oleh manusia dimulai dengan pengubahan sumber daya alam menjadi alat-alat sederhana. Penemuan prasejarah tentang kemampuan mengendalikan api telah menaikkan ketersediaan sumber-sumber pangan, sedangkan penciptaan roda telah membantu manusia dalam bepergian dan mengendalikan lingkungan mereka. Perkembangan teknologi terbaru, termasuk di antaranya mesin cetak, telepon, dan Internet, telah memperkecil hambatan fisik terhadap komunikasi dan memungkinkan manusia untuk berinteraksi secara bebas dalam skala global. Tetapi, tidak semua teknologi digunakan untuk tujuan damai. Pengembangan senjata penghancur yang makin hebat telah berlangsung sepanjang sejarah dari pentungan sampai senjata nuklir.';
+
+    let charIndex = 0;
+    let timer = null;
+
+    function typeChar() {
+    if (charIndex < textToType.length) {
+        typingText.textContent += textToType[charIndex];
+        charIndex++;
+        timer = setTimeout(typeChar, 50); // adjust the speed to your liking
+    } else {
+        clearTimeout(timer);
+    }
+    }
+    typeChar();
+</script>
+</html>
